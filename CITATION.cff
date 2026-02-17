@@ -6,7 +6,7 @@ authors:
     orcid: "https://orcid.org/0009-0003-5706-8137"
 title: "eth-nbd-forensics: Behavioral Profiling of Ethereum Wallets using Negative Binomial Distributions"
 version: "1.0.0"
-doi: "10.5281/zenodo.XXXXXXX"
+doi: "10.5281/zenodo.18674615"
 date-released: 2026-02-17
 url: "https://github.com/roverbird/eth-wallet-forensics"
 keywords:
