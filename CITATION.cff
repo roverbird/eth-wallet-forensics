@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this software or the NBD-profiling methodology, please cite it as below."
+authors:
+  - family-names: "Sotov"
+    given-names: "Alexander"
+    orcid: "https://orcid.org/0009-0003-5706-8137"
+title: "eth-nbd-forensics: Behavioral Profiling of Ethereum Wallets using Negative Binomial Distributions"
+version: "1.0.0"
+doi: "10.5281/zenodo.XXXXXXX"
+date-released: 2026-02-17
+url: "https://github.com/roverbird/eth-wallet-forensics"
+keywords:
+  - blockchain
+  - ethereum
+  - uniswap-v3
+  - mev
+  - forensics
+  - negative-binomial-distribution
+  - wallet-profiling
+  - address-profiling
+license: MIT
