@@ -104,7 +104,7 @@ EIP-1559 recording issue described in Section 3.2.
 **`net_usdc_flow`** is the signed sum of USDC flows over the observation
 window:
 
-$$
+$`
 \text{net\_usdc\_flow}(w) = \sum_{t} \text{flow}_t, \quad
 \text{where} \quad
 \text{flow}_t =
@@ -112,7 +112,8 @@ $$
 +\text{usdc}_t & \text{if SELL\_ETH} \\
 -\text{usdc}_t & \text{if BUY\_ETH}
 \end{cases}
-$$
+`$
+
 
 A positive value indicates net USDC extraction from the pool (wallet is
 a net seller of ETH); a negative value indicates net USDC injection
@@ -160,12 +161,12 @@ interval with $|\text{bps}| \geq 5$. For each DEX swap occurring within
 a signal window, a reaction is recorded if the trade direction matches
 the CEX price movement:
 
-$$
+$`
 \text{reaction}_t = \mathbf{1}\!\left[
   (\text{bps}_t > 0 \wedge \text{side}_t = \text{BUY\_ETH}) \;\vee\;
   (\text{bps}_t < 0 \wedge \text{side}_t = \text{SELL\_ETH})
 \right]
-$$
+`$
 
 The per-wallet rate is the mean over all signal-adjacent trades. A high
 rate indicates that a wallet consistently trades in the direction of
@@ -196,29 +197,29 @@ frequency filter of 2. Wallet pairs and triplets whose co-occurrence
 frequency significantly exceeds the independence baseline are flagged as
 syndicate candidates:
 
-$$
+$`
 \mathcal{S} = \{ w \mid w \text{ appears in top-ranked collocations} \}
-$$
+`$
 
 A swap event is tagged as coordinated if its wallet belongs to
 $\mathcal{S}$ and the same event contains at least one other syndicate
 member:
 
-$$
+$`
 \text{is\_coordinated}(w, t) =
 \mathbf{1}\!\left[
   w \in \mathcal{S} \;\wedge\; \left|\{w' \in \text{tx}(t) \cap \mathcal{S}\}\right| \geq 2
 \right]
-$$
+`$
 
 The **`coordination_score`** is the percentage of a wallet's trades
 that satisfy this condition. The **`cluster_size`** counts the number of
 distinct stable partners — wallets sharing at least two co-occurrence
 contexts with the focal wallet:
 
-$$
+$`
 \text{cluster\_size}(w) = \left|\{ w' \mid |C_{ww'}| \geq 2 \}\right|
-$$
+`$
 
 where $C_{ww'}$ is the set of contexts in which both $w$ and $w'$
 appear.
