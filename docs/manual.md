@@ -4,6 +4,8 @@
 
 Code: `collector.py`
 
+Data: [ETH_USDC_Uniswap_V3_raw_data.csv](https://zenodo.org/records/18674644/files/ETH_USDC_Uniswap_V3_raw_data.csv?download=1)
+
 Swap events emitted by the Uniswap v3 ETH/USDC 0.05% fee-tier pool
 (`0x88e6A0c2dDD26FEEb64F039a2c41296FcB3f5640`) on Ethereum mainnet
 are collected using a custom JSON-RPC collector, `collector.py`
@@ -43,6 +45,8 @@ rather than absolute cost.
 The unit of analysis is the individual recipient wallet.
 
 Code: `wrapper.py`
+
+Data: [ETH_MEV_bot_research_wallet_forensics.csv](https://zenodo.org/records/18674644/files/ETH_MEV_bot_research_wallet_forensics.csv?download=1)
 
 ## 2.2 Feature Engineering
 
