@@ -1,4 +1,4 @@
-# Ethereum Wallet Forensics Kit for Behavioral Profiling
+# Ethereum Wallet Forensics Kit for Behavioral Analysis
 
 This repository contains the analytical pipeline and data collection suite used to identify and categorize Ethereum market participants in Uniswap v3 liquidity pools. Built for our MEV bot research project.
 
@@ -36,3 +36,27 @@ The underlying dataset (Uniswap v3 ETH/USDC swap logs and processed data with ET
 https://doi.org/10.5281/zenodo.18674616
 
 https://doi.org/10.5281/zenodo.18674644
+
+## Leaderboard
+
+**`leaderboard/`**: [MEV / DEX Wallet Leaderboard](https://kibervarnost.si/mev-leaderboard/)
+
+These scripts are a lightweight open monitoring system for the Uniswap V3 USDC/ETH pool on Ethereum mainnet (one of the most actively traded decentralised venues in DeFi). Every swap, every wallet, every gas fee is recorded permanently on the public blockchain. We collect that data with `scripts/collector.py`, process it daily, and rank wallets by how much value they extracted from the pool.
+
+The `leaderboard/leaderboard.py` tracks net USDC extracted after gas, win rate, profit factor, and CEX-informed trade percentage to give a picture of who has systematic edge in this market and how they operate.
+
+### What is this leaderboard?
+
+This leaderboard tracks every wallet (Ethereum address) that traded in the Uniswap V3 USDC/ETH pool on Ethereum mainnet, ranked by how much USDC they extracted from the pool after paying gas costs. It updates once a day and shows both a 24-hour and a 7-day rolling window.
+
+### What does "extracted USDC" mean?
+
+Every swap in a liquidity pool is a transfer of value between the trader and the pool's liquidity providers (LPs). When a wallet sells ETH into the pool, it receives USDC, extracting liquidity. When it buys ETH, it deposits USDC. Net USDC extracted is the difference: how much more USDC a wallet took out than it put in, over the measurement window. A high positive number means the wallet was a consistent net seller of ETH into the pool, profiting at the expense of LPs or less informed traders on the other side.
+
+### Who are these wallets?
+
+The top-ranked addresses are almost exclusively sophisticated on-chain actors — MEV bots, CEX-DEX arbitrageurs, and sandwich bots. A wallet appearing consistently at the top of both daily and weekly rankings is running an automated strategy that identifies and captures price discrepancies between this pool and centralised exchanges like Kraken or Binance. The "Informed %" column shows what fraction of their trades aligned with concurrent price movement on Kraken — values above 65% strongly suggest the wallet is trading on CEX price feed signals before the DEX price catches up.
+
+### Why does this matter?
+
+For liquidity providers, these wallets represent the primary source of adverse selection loss — the cost of having your liquidity traded against by someone with better information. For researchers and funds, the leaderboard is a live map of who has systematic edge in this market, how consistent that edge is (profit factor, win rate), and how capital efficient each strategy is (net USDC per trade). Wallets that rank highly week after week are running durable, automated strategies worth studying closely.
