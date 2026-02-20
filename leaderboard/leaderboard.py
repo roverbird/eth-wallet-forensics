@@ -82,7 +82,7 @@ logging.basicConfig(
 log = logging.getLogger(__name__)
 
 TARGET_COLS = [
-    "block", "log_index", "timestamp", "tx_sender", "side",
+    "block", "log_index", "timestamp", "swap_sender", "side",
     "base_qty_eth", "quote_qty_usdc", "execution_price",
     "tx_fee_eth", "tx_hash",
 ]
@@ -448,7 +448,7 @@ def _process_chunk(
         active_addrs: Set[str] = set()
 
         for row in block_df.itertuples(index=False):
-            addr  = row.tx_sender
+            addr  = row.swap_sender
             price = float(row.execution_price)
 
             if addr not in wallets:
