@@ -57,7 +57,7 @@ from cex_library_lite import KrakenCEX, align_ledger_to_cex
 # ---------------------------------------------------------------------------
 # Config
 # ---------------------------------------------------------------------------
-INPUT_FILE        = "/home/runko/collector/forensic_cex_data_v2.csv"
+INPUT_FILE        = "forensic_dex_data_v2.csv"
 OUTPUT_FILE_DAILY   = "leaderboard_static_daily.csv"
 OUTPUT_FILE_WEEKLY  = "leaderboard_static_weekly.csv"
 LOW_ACTIVITY_SUFFIX = "_low_activity"          # inserted before .csv on each window file
